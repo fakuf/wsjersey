@@ -4,57 +4,63 @@ import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+//import javax.validation.constraints.NotNull;
 @Entity
-public class Person implements Serializable{
+public class Persona implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	@Id
+//	@NotNull
 	private Long Dni;
-	private String surname;
-	private String name;
-	private String age;
+//	@NotNull
+	private String apellido;
+//	@NotNull
+	private String nombre;
 	
-	public Person() {}
+	private String edad;
 	
-	public Person(String surname, String name, String age) {
-		super();
-		this.surname = surname;
-		this.name = name;
-		this.age = age;
-	}
-	
-	public Person(Long dni, String surname, String name, String age) {
+	public Persona() {}
+
+	public Persona(Long dni, String apellido, String nombre, String edad) {
 		super();
 		Dni = dni;
-		this.surname = surname;
-		this.name = name;
-		this.age = age;
+		this.apellido = apellido;
+		this.nombre = nombre;
+		this.edad = edad;
 	}
-	
+
 	public Long getDni() {
 		return Dni;
 	}
+
 	public void setDni(Long dni) {
 		Dni = dni;
 	}
-	public String getSurname() {
-		return surname;
+
+	public String getApellido() {
+		return apellido;
 	}
-	public void setSurname(String surname) {
-		this.surname = surname;
+
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
 	}
-	public String getName() {
-		return name;
+
+	public String getNombre() {
+		return nombre;
 	}
-	public void setName(String name) {
-		this.name = name;
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
-	public String getAge() {
-		return age;
+
+	public String getEdad() {
+		return edad;
 	}
-	public void setAge(String age) {
-		this.age = age;
+
+	public void setEdad(String edad) {
+		this.edad = edad;
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -62,6 +68,7 @@ public class Person implements Serializable{
 		result = prime * result + ((Dni == null) ? 0 : Dni.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -70,7 +77,7 @@ public class Person implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Person other = (Person) obj;
+		Persona other = (Persona) obj;
 		if (Dni == null) {
 			if (other.Dni != null)
 				return false;
@@ -78,4 +85,6 @@ public class Person implements Serializable{
 			return false;
 		return true;
 	}
+	
+	
 }

@@ -1,7 +1,8 @@
 package com.ws.idao;
 
-import java.io.Serializable;
 import java.util.List;
+
+import com.ws.excepciones.DAOException;
 
 public interface IGenericDaoHibernateJpa<T> {
 	/**
@@ -9,13 +10,13 @@ public interface IGenericDaoHibernateJpa<T> {
 	 * @param entity
 	 * @throws Exception
 	 */
-	void alta(T entity) throws Exception;
+	void alta(T entity) throws DAOException;
 	
 	/**
 	 * get a list of entities
 	 * @return
 	 * @throws Exception
 	 */
-	List<T> recuperar() throws Exception;
+	List<T> recuperar() throws DAOException;
 	
 }

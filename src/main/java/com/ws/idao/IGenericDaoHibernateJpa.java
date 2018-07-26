@@ -17,4 +17,5 @@ public interface IGenericDaoHibernateJpa<T> {
 	 * @throws Exception
 	 */
 	List<T> recuperar() throws Exception;
+	
 }

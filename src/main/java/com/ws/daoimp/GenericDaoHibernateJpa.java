@@ -6,13 +6,16 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceContext;
 
+import com.ws.entitymanager.EMF;
 import com.ws.idao.IGenericDaoHibernateJpa;
+import com.ws.model.Person;
 
 public class GenericDaoHibernateJpa<T> implements IGenericDaoHibernateJpa<T>  {
 	@PersistenceContext(unitName="ws") EntityManager em;
 
 	public void alta(T entity) throws Exception {
 		EntityTransaction tx = null;
+		EntityManager em = EMF.getEMF().createEntityManager();
 		try {
 			tx = em.getTransaction();
 			tx.begin();
@@ -23,6 +26,8 @@ public class GenericDaoHibernateJpa<T> implements IGenericDaoHibernateJpa<T>  {
 			throw e;
 		}	
 	}
+	
+	
 
 	public List<T> recuperar() throws Exception {
 		return null;

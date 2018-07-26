@@ -1,8 +1,10 @@
 package com.ws.model;
 
 import java.io.Serializable;
-import javax.persistence.Id;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+@Entity
 public class Person implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
@@ -13,6 +15,13 @@ public class Person implements Serializable{
 	private String age;
 	
 	public Person() {}
+	
+	public Person(String surname, String name, String age) {
+		super();
+		this.surname = surname;
+		this.name = name;
+		this.age = age;
+	}
 	
 	public Person(Long dni, String surname, String name, String age) {
 		super();

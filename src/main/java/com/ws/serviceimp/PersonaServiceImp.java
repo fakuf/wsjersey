@@ -26,8 +26,8 @@ public class PersonaServiceImp implements IPersonaService {
 			IPersonaDao personDao = FactoryDao.getPersonDAO();
 			List<Persona> personas = personDao.recuperar();
 			return personas;
-		}catch(Exception e) {
-			return null;
+		}catch(DAOException e) {
+			throw new ServiceException(e);
 		}
 	}
 

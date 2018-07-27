@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.RollbackException;
 
 import com.ws.entitymanager.EMF;
 import com.ws.excepciones.DAOException;
@@ -28,13 +29,8 @@ public class GenericDaoHibernateJpa<T> implements IGenericDaoHibernateJpa<T>  {
 			tx.begin();
 			em.persist(entity);
 			tx.commit();
-			em.close();
 		} catch (Exception e) {
-			tx.rollback();
-			throw new DAOException(e);
-		}	
-		finally {
-			em.close();
+			throw new DAOException("Se produjo un error al persistir la entidad "+e);
 		}
 	}
 	

@@ -4,19 +4,23 @@ import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-//import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotNull;
 @Entity
 public class Persona implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	@Id
-//	@NotNull
+	
 	private Long Dni;
-//	@NotNull
+	
+	@NotNull(message="El apellido no puede ser null")
 	private String apellido;
-//	@NotNull
+	
+	@NotNull(message="El nombre no puede ser null")
 	private String nombre;
 	
+	@NotNull(message="La edad no puede ser null")
 	private String edad;
 	
 	public Persona() {}
@@ -33,7 +37,7 @@ public class Persona implements Serializable{
 		return Dni;
 	}
 
-	public void setDni(Long dni) {
+	public void setDni(@Digits(integer=8, fraction = 0, message = "(nuDocumento) Cantidad de caracteres ingresados distinto a 8") Long dni) {
 		Dni = dni;
 	}
 

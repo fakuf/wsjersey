@@ -2,6 +2,7 @@ package com.ws.api;
 
 import java.util.List;
 
+import javax.validation.Valid;
 //import javax.validation.Valid;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -24,14 +25,17 @@ public class PersonaResource {
 	@Path("/personas/{dni}")
 	@Consumes({MediaType.APPLICATION_JSON})
 	@Produces({MediaType.APPLICATION_JSON})
-	public Persona add(@PathParam( "dni" ) Long dni, Persona person) {
+	public Response add(@PathParam( "dni" ) Long dni, @Valid Persona person) {
 		try {
 			IPersonaService personService = new PersonaServiceImp();
 			person.setDni(dni);
 			personService.add(person);
-			return person;
+			return Response.status(Status.OK).entity(person).build();
 		}catch(ServiceException se) {
-			return null;
+			return Response.status(Status.CONFLICT).entity(se.getMessage()).build();
+		}
+		catch(Exception e) {
+			return Response.status(Status.BAD_REQUEST).build();
 		}
 	}
 	
@@ -46,7 +50,7 @@ public class PersonaResource {
 			return Response.status(Status.OK).entity(personas).build();
 		}
 		catch(ServiceException se) {
-			return null;
+			return Response.status(Status.CONFLICT).entity(se.getMessage()).build();
 		}
 	}
 }

@@ -4,24 +4,31 @@
 
 <web-app>
   <display-name>wstest</display-name>
-  <servlet>
-		<servlet-name>Jersey Web Application</servlet-name>
-		<servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
+    <!--JERSEY -->
+	<servlet>
+		<servlet-name>Jersey WebSap API</servlet-name>
+		<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+		<!-- <init-param> -->
+		<!-- <param-name>jersey.config.server.provider.packages</param-name> -->
+		<!-- <param-value>ips.websap.api</param-value> -->
+		<!-- </init-param> -->
 		<init-param>
-			<param-name>com.sun.jersey.config.property.packages</param-name>
-			<param-value>com.ws.api</param-value>
+			<param-name>jersey.config.server.provider.packages</param-name>
+			<param-value>com.ws.api,com.fasterxml.jackson.jaxrs.json</param-value>
 		</init-param>
-		
 		<init-param>
-			<param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
+			<param-name>javax.ws.rs.Application</param-name>
+			<param-value>com.ws.config.ApplicationConfig</param-value>
+		</init-param>
+		<init-param>
+			<param-name>jersey.config.beanValidation.enableOutputValidationErrorEntity.server</param-name>
 			<param-value>true</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
-	
 	<servlet-mapping>
-		<servlet-name>Jersey Web Application</servlet-name>
+		<servlet-name>Jersey WebSap API</servlet-name>
 		<url-pattern>/services/*</url-pattern>
-	</servlet-mapping>
+	</servlet-mapping> 
 </web-app>
 

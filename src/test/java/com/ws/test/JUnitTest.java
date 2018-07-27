@@ -27,7 +27,7 @@ public class JUnitTest {
 			personaDao.alta(persona1);
 			p = personaDao.recuperar(33856516L);
 			assertNotNull(p);
-			assertEquals(new Long(33856516), p.getDni());
+			assertEquals(persona1, p);
 		} catch (DAOException e) {
 			fail("Ocurrio un error al dar de alta la persona "+e);
 		}

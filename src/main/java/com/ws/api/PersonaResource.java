@@ -18,7 +18,7 @@ import com.ws.excepciones.ServiceException;
 import com.ws.iservice.IPersonaService;
 import com.ws.model.Persona;
 import com.ws.serviceimp.PersonaServiceImp;
-@Path("/persona")
+@Path("/")
 public class PersonaResource {
 
 	@POST

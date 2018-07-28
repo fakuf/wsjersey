@@ -7,5 +7,6 @@ import com.ws.model.Persona;
 public class ApplicationConfig extends ResourceConfig {
 	public ApplicationConfig() {
 		register(Persona.class);
+		register(ConstraintViolationMapper.class);
 	}
 }

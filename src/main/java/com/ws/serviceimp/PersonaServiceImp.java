@@ -13,8 +13,8 @@ public class PersonaServiceImp implements IPersonaService {
 
 	public Persona add(Persona p) throws ServiceException {
 		try {
-			IPersonaDao personDao = FactoryDao.getPersonDAO();
-			personDao.alta(p);
+			IPersonaDao personaDao = FactoryDao.getPersonaDAO();
+			personaDao.alta(p);
 			return p;
 		}catch(DAOException e) {
 			throw new ServiceException(e);
@@ -23,8 +23,8 @@ public class PersonaServiceImp implements IPersonaService {
 
 	public List<Persona> recuperar() throws ServiceException {
 		try {
-			IPersonaDao personDao = FactoryDao.getPersonDAO();
-			List<Persona> personas = personDao.recuperar();
+			IPersonaDao personaDao = FactoryDao.getPersonaDAO();
+			List<Persona> personas = personaDao.recuperar();
 			return personas;
 		}catch(DAOException e) {
 			throw new ServiceException(e);

@@ -4,28 +4,30 @@ import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.validation.constraints.Digits;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotEmpty;
 @Entity
 public class Persona implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	@Id
-	
 	private Long Dni;
 	
-	@NotNull(message="El apellido no puede ser null")
+	@NotEmpty(message = "Se debe ingresar un valor en el apellido")
 	private String apellido;
 	
-	@NotNull(message="El nombre no puede ser null")
+	@NotEmpty(message = "Se debe ingresar un valor en el nombre")
 	private String nombre;
 	
-	@NotNull(message="La edad no puede ser null")
-	private String edad;
+	@NotNull(message = "La edad no puede ser null")
+	@Min(value = 1, message = "La edad no puede ser 0")
+	private Integer edad;
 	
 	public Persona() {}
 
-	public Persona(Long dni, String apellido, String nombre, String edad) {
+	public Persona(Long dni, String apellido, String nombre, Integer edad) {
 		super();
 		Dni = dni;
 		this.apellido = apellido;
@@ -37,7 +39,7 @@ public class Persona implements Serializable{
 		return Dni;
 	}
 
-	public void setDni(@Digits(integer=8, fraction = 0, message = "(nuDocumento) Cantidad de caracteres ingresados distinto a 8") Long dni) {
+	public void setDni(Long dni) {
 		Dni = dni;
 	}
 
@@ -57,11 +59,11 @@ public class Persona implements Serializable{
 		this.nombre = nombre;
 	}
 
-	public String getEdad() {
+	public Integer getEdad() {
 		return edad;
 	}
 
-	public void setEdad(String edad) {
+	public void setEdad(Integer edad) {
 		this.edad = edad;
 	}
 
@@ -88,7 +90,5 @@ public class Persona implements Serializable{
 		} else if (!Dni.equals(other.Dni))
 			return false;
 		return true;
-	}
-	
-	
+	}	
 }

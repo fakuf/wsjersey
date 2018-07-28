@@ -20,8 +20,8 @@ public class JUnitTest {
 	
 	@Test
 	public void guardaPersona() {
-		 IPersonaDao personaDao = FactoryDao.getPersonDAO();
-		 Persona persona1 = new Persona(33856516L, "Falcone", "Facundo", "29");
+		 IPersonaDao personaDao = FactoryDao.getPersonaDAO();
+		 Persona persona1 = new Persona(33856516L, "Falcone", "Facundo", 29);
 		 try {
 			Persona p = null;
 			personaDao.alta(persona1);
@@ -35,7 +35,7 @@ public class JUnitTest {
 	
 	@Test
 	public void listarPersonas() {
-		 IPersonaDao personaDao = FactoryDao.getPersonDAO();
+		 IPersonaDao personaDao = FactoryDao.getPersonaDAO();
 		 try {
 			List<Persona> personas = personaDao.recuperar();
 			assertThat(personas, hasSize(equalTo(1)));

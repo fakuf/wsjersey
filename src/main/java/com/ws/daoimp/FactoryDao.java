@@ -4,7 +4,7 @@ import com.ws.idao.IPersonaDao;
 
 public class FactoryDao {
 	
-	public static IPersonaDao getPersonDAO() {
+	public static IPersonaDao getPersonaDAO() {
 		return new PersonaDaoHibernateJpa();
 	}
 }

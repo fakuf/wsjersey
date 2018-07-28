@@ -17,11 +17,14 @@ import com.ws.idao.IPersonaDao;
 import com.ws.model.Persona;
 
 public class JUnitTest {
+	public Persona persona1 = new Persona(33856516L, "Falcone", "Facundo", 29);
+	public Persona persona2 = new Persona(33856517L, "Falcone", "Fernando", 39);
+	public Persona persona3 = new Persona(33856518L, "Falcone", "Agustina", 35);
 	
 	@Test
 	public void guardaPersona() {
 		 IPersonaDao personaDao = FactoryDao.getPersonaDAO();
-		 Persona persona1 = new Persona(33856516L, "Falcone", "Facundo", 29);
+		 
 		 try {
 			Persona p = null;
 			personaDao.alta(persona1);
@@ -37,8 +40,12 @@ public class JUnitTest {
 	public void listarPersonas() {
 		 IPersonaDao personaDao = FactoryDao.getPersonaDAO();
 		 try {
-			List<Persona> personas = personaDao.recuperar();
-			assertThat(personas, hasSize(equalTo(1)));
+			 personaDao.limpiarTabla();
+			 personaDao.alta(persona1);
+			 personaDao.alta(persona2);
+			 personaDao.alta(persona3);
+			 List<Persona> personas = personaDao.recuperar();
+			 assertThat(personas, hasSize(equalTo(3)));
 		} catch (DAOException e) {
 			fail("Ocurrio un error al listar las personas "+e);
 		}

@@ -14,7 +14,10 @@ Base de Datos
   
 Capa de datos realizada con patrón DAO
 
-![patrondao](https://user-images.githubusercontent.com/10741694/43360471-42d30dec-928c-11e8-9163-e3da0fe2ae81.png)
+![patrondao](https://user-images.githubusercontent.com/10741694/43371160-a8f99470-9362-11e8-91be-1eb9250bf404.png)
+
+
+
 
 
 Validaciones

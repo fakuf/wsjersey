@@ -9,7 +9,7 @@ import com.ws.excepciones.DAOException;
 import com.ws.idao.IPersonaDao;
 import com.ws.model.Persona;
 
-public class PersonaDaoHibernateJpa extends GenericDaoHibernateJpa<Persona> implements IPersonaDao {
+public class PersonaDaoHibernateJpa extends GenericDao<Persona> implements IPersonaDao {
 	
 	public PersonaDaoHibernateJpa() {
 		super(Persona.class);

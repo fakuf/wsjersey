@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.ws.excepciones.DAOException;
 
-public interface IGenericDaoHibernateJpa<T> {
+public interface IGenericDao<T> {
 	
 	/**
 	 * Guarda una entidad

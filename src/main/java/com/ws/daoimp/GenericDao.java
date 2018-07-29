@@ -10,13 +10,13 @@ import javax.persistence.RollbackException;
 
 import com.ws.entitymanager.EMF;
 import com.ws.excepciones.DAOException;
-import com.ws.idao.IGenericDaoHibernateJpa;
+import com.ws.idao.IGenericDao;
 import com.ws.model.Persona;
 
-public class GenericDaoHibernateJpa<T> implements IGenericDaoHibernateJpa<T>  {
+public class GenericDao<T> implements IGenericDao<T>  {
 	protected Class<T> persistentClass;
 	
-	public GenericDaoHibernateJpa(Class<T> persistentClass){
+	public GenericDao(Class<T> persistentClass){
 		this.setPersistentClass(persistentClass);
 	}
 	

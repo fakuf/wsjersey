@@ -3,7 +3,7 @@ package com.ws.idao;
 import com.ws.excepciones.DAOException;
 import com.ws.model.Persona;
 
-public interface IPersonaDao extends IGenericDaoHibernateJpa<Persona> {
+public interface IPersonaDao extends IGenericDao<Persona> {
 	
 	/**
 	 * @param dni

@@ -11,7 +11,7 @@ import com.ws.model.Persona;
 
 public class PersonaServiceImp implements IPersonaService {
 
-	public Persona add(Persona p) throws ServiceException {
+	public Persona alta(Persona p) throws ServiceException {
 		try {
 			IPersonaDao personaDao = FactoryDao.getPersonaDAO();
 			personaDao.alta(p);

@@ -29,14 +29,14 @@ public class PersonaResource {
 	@Path("/personas/{dni}")
 	@Consumes({MediaType.APPLICATION_JSON})
 	@Produces({MediaType.APPLICATION_JSON})
-	public Response add(@PathParam( "dni" ) Long dni, @Valid Persona person) {
+	public Response add(@PathParam( "dni" ) Long dni, @Valid Persona persona) {
 		try {
 			if (!validarDni(dni)) 
 				throw new ValidationException("cantidad de digitos del dni distinto a ocho");
 			IPersonaService personService = new PersonaServiceImp();
-			person.setDni(dni);
-			personService.add(person);
-			return Response.status(Status.CREATED).entity(person).build();
+			persona.setDni(dni);
+			personService.alta(persona);
+			return Response.status(Status.CREATED).entity(persona).build();
 		}catch(ServiceException se) {
 			return Response.status(Status.INTERNAL_SERVER_ERROR).entity(se.getMessage()).build();
 		}

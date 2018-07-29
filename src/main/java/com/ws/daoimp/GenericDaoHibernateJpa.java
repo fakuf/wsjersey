@@ -14,7 +14,6 @@ import com.ws.idao.IGenericDaoHibernateJpa;
 import com.ws.model.Persona;
 
 public class GenericDaoHibernateJpa<T> implements IGenericDaoHibernateJpa<T>  {
-//	@PersistenceContext(unitName="ws") EntityManager em;
 	protected Class<T> persistentClass;
 	
 	public GenericDaoHibernateJpa(Class<T> persistentClass){

@@ -5,18 +5,20 @@ import java.util.List;
 import com.ws.excepciones.DAOException;
 
 public interface IGenericDaoHibernateJpa<T> {
-	/**
-	 * store an entity
-	 * @param entity
-	 * @throws Exception
-	 */
-	void alta(T entity) throws DAOException;
 	
 	/**
-	 * get a list of entities
-	 * @return
-	 * @throws Exception
+	 * Guarda una entidad
+	 * @param entidad
+	 * @throws DAOException
 	 */
-	List<T> recuperar() throws DAOException;
+	public void alta(T entidad) throws DAOException;
+	
+	
+	/**
+	 * Recupera una lista de entidades
+	 * @return List<T>
+	 * @throws DAOException
+	 */
+	public List<T> recuperar() throws DAOException;
 	
 }

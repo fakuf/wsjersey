@@ -9,6 +9,7 @@ import static org.junit.Assert.fail;
 
 import java.util.List;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import com.ws.daoimp.FactoryDao;
@@ -17,14 +18,26 @@ import com.ws.idao.IPersonaDao;
 import com.ws.model.Persona;
 
 public class JUnitTest {
-	public Persona persona1 = new Persona(33856516L, "Falcone", "Facundo", 29);
-	public Persona persona2 = new Persona(33856517L, "Falcone", "Fernando", 39);
-	public Persona persona3 = new Persona(33856518L, "Falcone", "Agustina", 35);
+	public Persona persona1;
+	public Persona persona2;
+	public Persona persona3;
+	public IPersonaDao personaDao;
+	
+	@Before
+	public void init() {
+		persona1 = new Persona(33856516L, "Falcone", "Facundo", 29);
+		persona2 = new Persona(33856517L, "Falcone", "Fernando", 39);
+		persona3 = new Persona(33856518L, "Falcone", "Agustina", 35);
+		personaDao = FactoryDao.getPersonaDAO();
+		try {
+			personaDao.limpiarTabla();
+		} catch (DAOException e) {
+			fail("Ocurrio un error "+ e);
+		}
+	}
 	
 	@Test
 	public void guardaPersona() {
-		 IPersonaDao personaDao = FactoryDao.getPersonaDAO();
-		 
 		 try {
 			Persona p = null;
 			personaDao.alta(persona1);

@@ -8,15 +8,13 @@ import com.ws.model.Persona;
 public interface IPersonaService {
 	
 	/**
-	 * 
-	 * @param p the person to store
-	 * @return the person who was saved
+	 * @param p la persona a guardar
+	 * @return Persona
 	 */
-	public Persona add(Persona p) throws ServiceException;
+	public Persona alta(Persona p) throws ServiceException;
 	
 	/**
-	 * Devuele el listado de todas las personas
-	 * @return
+	 * @return List<Persona>
 	 */
 	public List<Persona> recuperar() throws ServiceException;
 

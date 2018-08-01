@@ -17,7 +17,7 @@ import com.ws.excepciones.DAOException;
 import com.ws.idao.IPersonaDao;
 import com.ws.model.Persona;
 
-public class JUnitTest {
+public class DAOTest {
 	public Persona persona1;
 	public Persona persona2;
 	public Persona persona3;

@@ -34,6 +34,13 @@ public class Persona implements Serializable{
 		this.nombre = nombre;
 		this.edad = edad;
 	}
+	
+	public Persona( String apellido, String nombre, Integer edad) {
+		super();
+		this.apellido = apellido;
+		this.nombre = nombre;
+		this.edad = edad;
+	}
 
 	public Long getDni() {
 		return Dni;
